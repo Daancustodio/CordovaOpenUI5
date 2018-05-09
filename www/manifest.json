@@ -1,0 +1,104 @@
+{
+	"_version": "1.0.1",
+	"sap.app": {
+		"_version": "1.0.0",
+		"id": "myAppName",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"title": "{{MasterView.tittle}}",
+		"description": "{{appDescription}}",
+		"applicationVersion": {
+			"version": "1.0.0"
+		}
+	},
+	"sap.ui": {
+		"_version": "1.3.0",
+		"technology": "UI5",
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_bluecrystal",
+			"sap_belize_plus",
+			"sap_belize"
+		]
+	},
+	"sap.ui5": {
+	    "_version": "1.2.0",
+		"rootView": "myAppName.view.App",
+		"dependencies": {
+			"minUI5Version": "1.34.0",
+			"libs": {
+				"sap.ui.core": {
+					"minVersion": "1.34.0"
+				},
+				"sap.m": {
+					"minVersion": "1.34.0"
+				},
+				"sap.ui.layout": {
+					"minVersion": "1.34.0"
+				}
+			}
+        },
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {			
+															
+		    "i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "myAppName.i18n.i18n"
+				}
+			}
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "myAppName.view",				
+				"controlId": "app",
+				"controlAggregation": "pages"				
+			},
+
+			"routes": [
+				{
+					"pattern": "",
+					"name": "dashBoard",
+					"target": "dashBoard"
+				},
+				{
+					"pattern": "requestPurchase",
+					"name": "requestPurchase",
+					"target": "requestPurchase"
+				},		
+				{
+					"pattern": "requestPurchaseDetail/:id:/:isDraft:",
+					"name": "requestPurchaseDetail",
+					"target": "requestPurchaseDetail"
+				}	
+					
+			],
+
+			"targets": {
+				"dashBoard": {
+					"viewName": "DashBoard",
+					"viewLevel": 1
+				},
+				"requestPurchase": {
+					"viewName": "List",
+					"viewLevel": 2,
+					"viewPath": "myAppName.view.RequestPurchase"
+				},
+				"requestPurchaseDetail": {
+					"viewName": "Detail",
+					"viewLevel": 3,
+					"viewPath": "myAppName.view.RequestPurchase"
+				}				
+			}
+		}
+	}
+}

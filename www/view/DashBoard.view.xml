@@ -1,0 +1,70 @@
+<mvc:View
+		height="100%"
+		controllerName="myAppName.controller.DashBoard"
+		xmlns:form="sap.ui.layout.form"
+		xmlns:core="sap.ui.core"
+		xmlns:u="sap.ui.unified"
+		xmlns:mvc="sap.ui.core.mvc"
+		xmlns="sap.m">
+		<NavContainer id="wizardNavContainer">
+			<pages>
+				<Page
+				id="wizardContentPage"
+				showHeader="false">
+					<content>
+						<Wizard id="CreateProductWizard"
+								>
+							<WizardStep id="ProductTypeStep"
+										title="Introdução"
+										validated="true">
+								<MessageStrip class="sapUiSmallMarginBottom"
+										text="Bem Vindo ao Starter kit Openui5 + Cordova"
+										showIcon="true"/>
+								<Text class="sapUiSmallMarginBottom"
+										text="Para aplicar as modificações necessárias para seu projeto, começe alterando em todos os pontos do sistema o nome 'myAppName' pelo nome que dejesa dar ao seu aplicativo."/>
+								<HBox
+										alignItems="Center"
+										justifyContent="Center"
+										width="100%">
+									<SegmentedButton
+											width="320px"
+											select="setProductTypeFromSegmented">
+										<Button icon="sap-icon://iphone" text="Mobile"/>
+										<Button icon="sap-icon://sys-monitor" text="Desktop"/>
+										<Button icon="sap-icon://database" text="Other"/>
+									</SegmentedButton>
+								</HBox>
+							</WizardStep>
+							<WizardStep id="ProductInfoStep"
+										validated="true"
+										title="Compilação"
+										>
+								<MessageStrip class="sapUiSmallMarginBottom"
+										text="Para mehoria de performance, a SAP introduziu um conceito chamado Component-Preload"
+										showIcon="true"/>
+								<Text text="O packege.json, já está configurado para instalar as dependencias necessárias,
+                                 bastar utilizar comando: 'npm install', assim seram instaladas todas as dependências necessárias para criar seu component-preload. 
+                                 Após instalação, para gerar o componente-preload, utilize o Comando 'grunt build --force' "/>								
+							</WizardStep>
+							<WizardStep id="OptionalInfoStep"
+										validated="true"									
+										title="Servidor Web">
+								<MessageStrip class="sapUiSmallMarginBottom"
+										text="Para rodar o projeto você precisa de um servidor Web"
+										showIcon="true"/>
+								<Text text="Um servidor web simples e muito bom para testes é o 'http-serve', o mesmo pode ser encontrado no npm, então basta rodar o comando: 'npm install -g http-serve'
+                                Após intalar esse servidor, para acessar seu aplicativo basta utilizar o comando: 'http-serve -o'."/>
+								
+							</WizardStep>							
+						</Wizard>
+					</content>
+					<footer>
+						<OverflowToolbar>
+							<ToolbarSpacer/>
+							<Button text="Cancel" press="handleWizardCancel"/>
+						</OverflowToolbar>
+					</footer>
+				</Page>
+			</pages>
+		</NavContainer>
+</mvc:View>
